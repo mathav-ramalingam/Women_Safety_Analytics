@@ -140,8 +140,8 @@ def send_sos_email():
 
     
     #remove the quotes
-    '''url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
-    filename = 'hello.txt' '''
+    url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
+    filename = 'hello.txt' 
 
     context = ssl.create_default_context()
     try:
