@@ -1,5 +1,5 @@
-#remove the Quotes
-'''import cv2
+
+import cv2
 import os
 import numpy as np
 from keras.models import load_model
@@ -177,10 +177,10 @@ def send_sos_email():
         print(f"Failed to send email. Error: {str(e)}")
 
 # Function to send SMS and make a call using Twilio
-#remove the quotes
+#remove the word remove and cury braces
 def send_twilio_alert():
-    account_sid = "ACcd0d88307fcfd80e81de7e8885fe2d3f"
-    auth_token = "fcac17f33fa681e4289c6871c800b005" 
+    account_sid = "{remove}ACcd0d88307fcfd80e81{remove}de7e8885fe2d3f"
+    auth_token = "{remove}fcac17f33fa681e4289c6{remove}871c800b005" 
     
     client = Client(account_sid, auth_token)
     
@@ -211,5 +211,3 @@ def video_feed():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
-
-'''
