@@ -174,9 +174,9 @@ def send_sos_email():
         print(f"Failed to send email. Error: {str(e)}")
 
 # Function to send SMS and make a call using Twilio
-def send_twilio_alert():
+'''def send_twilio_alert():
     account_sid = "ACcd0d88307fcfd80e81de7e8885fe2d3f"
-    auth_token = "fcac17f33fa681e4289c6871c800b005"
+    auth_token = "fcac17f33fa681e4289c6871c800b005" '''
     
     client = Client(account_sid, auth_token)
     
