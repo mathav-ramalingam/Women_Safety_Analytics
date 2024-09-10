@@ -1,4 +1,5 @@
-import cv2
+#remove the Quotes
+'''import cv2
 import os
 import numpy as np
 from keras.models import load_model
@@ -14,8 +15,8 @@ import ssl
 app = Flask(__name__)
 
 # Paths to the pre-trained models
-MODEL_PATH_1 = 'C:/Users/matha/Documents/SIH/Web_App/Deployment - main/models/Gender_Classify.keras'
-MODEL_PATH_2 = 'C:/Users/matha/Documents/SIH/Web_App/Deployment - main/models/harassment(N)_mobilenetv2.h5'
+MODEL_PATH_1 = 'C:/Users/matha/Documents/SIH/GITHUB/Web_App/models/Gender_Classify.keras'
+MODEL_PATH_2 = 'C:/Users/matha/Documents/SIH/GITHUB/Web_App/models/harassment(N)_mobilenetv2.h5'
 
 # Load your trained models
 model_1 = load_model(MODEL_PATH_1)
@@ -95,13 +96,13 @@ def gen_frames():
                     harassment_label = np.argmax(second_model_preds)
                     harassment_labels = ['Harassment', 'Non-Harassment']
                     # Only append harassment detection if it is detected
-                    # if harassment_labels[harassment_label] == 'Harassment':
-                    #     send_sos_email()  # Send SOS email
-                    #     send_twilio_alert()  # Send SMS and make a call
-                    #     cv2.putText(frame, "Harassment Detected!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)  # Green color for text
-                    # else:
-                    #     # Optional: Add text for "Non-Harassment" detection
-                    #     cv2.putText(frame, "Non-Harassment", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)  # Red color for text
+                    if harassment_labels[harassment_label] == 'Harassment':
+                        send_sos_email()  # Send SOS email
+                        send_twilio_alert()  # Send SMS and make a call
+                        cv2.putText(frame, "Harassment Detected!", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)  # Green color for text
+                    else:
+                        #Optional: Add text for "Non-Harassment" detection
+                        cv2.putText(frame, "Non-Harassment", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)  # Red color for text
 
 
                 else:
@@ -137,8 +138,10 @@ def send_sos_email():
         'bavyadharshinir.22cse@kongu.edu'
     ]
 
-    url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
-    filename = 'hello.txt'
+    
+    #remove the quotes
+    '''url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
+    filename = 'hello.txt' '''
 
     context = ssl.create_default_context()
     try:
@@ -174,9 +177,10 @@ def send_sos_email():
         print(f"Failed to send email. Error: {str(e)}")
 
 # Function to send SMS and make a call using Twilio
-'''def send_twilio_alert():
+#remove the quotes
+def send_twilio_alert():
     account_sid = "ACcd0d88307fcfd80e81de7e8885fe2d3f"
-    auth_token = "fcac17f33fa681e4289c6871c800b005" '''
+    auth_token = "fcac17f33fa681e4289c6871c800b005" 
     
     client = Client(account_sid, auth_token)
     
@@ -194,7 +198,7 @@ def send_sos_email():
         to="+916379613654",  # JAHA
         from_="+12562239694"
     )
-    print("CALL MADE TO JAHA")
+    print("CALL MADE TO JAHA") 
 
 
 @app.route('/')
@@ -207,3 +211,5 @@ def video_feed():
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
+
+'''
