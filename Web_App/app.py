@@ -140,7 +140,7 @@ def send_sos_email():
 
     
     #remove the quotes
-    url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
+    url = '#'
     filename = 'hello.txt' 
 
     context = ssl.create_default_context()
@@ -193,7 +193,7 @@ def send_twilio_alert():
     
     # Making a call
     call = client.calls.create(
-        url='http://demo.twilio.com/docs/voice.xml',
+        url='#',
         to="+916379613654",  # JAHA
         from_="+12562239694"
     )
