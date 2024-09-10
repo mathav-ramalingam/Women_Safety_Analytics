@@ -1,0 +1,57 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #151313;
+}
+
+/* Navbar Customizations */
+.navbar {
+    box-shadow: 0 4px 6px red;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    margin-left: -100px;
+}
+.static
+{
+    margin-right: -80px;
+}
+
+/* Chatbot Button */
+#toggle-chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: bottom 0.3s ease;
+}
+
+/* Chatbot Container */
+#chatbot-container {
+    display: none;
+    position: fixed;
+    bottom: 80px; /* Space between button and chatbot */
+    right: 20px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+
+/* Iframe inside the chatbot container */
+#chatbot-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

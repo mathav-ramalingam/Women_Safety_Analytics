@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-center">Live Video Feed</h2>
+
+<div class="container text-center"></div>
+    <!-- Video Stream Section 
+    <h4 class="text-center">Live Video Feed</h4> -->
+    <div class="videoFeed">
+        <img id="videoFeed" src="{{ url_for('video_feed') }}" width="720" height="480" style="border: 2px solid #007bff;">
+    </div>
+
+    <br><br>
+    <div>
+        <h3 id="result" class="text-center">
+            <span></span>
+        </h3>
+    </div>
+    <!-- Chatbot toggle button -->
+    <div class="text-center">
+    <button id="toggle-chatbot" class="btn btn-info" style="position:fixed; bottom:20px; right:20px; z-index:1000; width: 100px;">
+        Chat
+    </button>
+    </div>
+
+    <!-- Chatbot iframe -->
+    <div id="chatbot-container" class="chatbot-container" style="display:none; position:fixed; bottom:20px; right:20px; width:300px; height:500px; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:1000;">
+        <iframe src="https://www.chatbase.co/chatbot-iframe/UW4dwoy2uZqDqhf7GJ9j9" 
+                style="border: none; width: 100%; height: 100%;" 
+                title="Chatbot">
+        </iframe>
+    </div>
+</div>
+
+<!-- Add CSS styling -->
+<style>
+    .videoFeed
+    {
+        margin-top: 50px  ;
+        margin-left: 190px;
+        color: #fff;
+    }
+    .text-center
+    {
+        color: aqua;
+    }
+
+</style>
+
+<script>
+    // Function to display the selected image
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const imageSection = document.querySelector('.image-section');
+        const imagePreview = document.getElementById('imagePreview');
+
+        // Get the file from the input element
+        const file = event.target.files[0];
+        
+        // Check if the file is an image
+        if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
+            const reader = new FileReader();
+            
+            // Load the image and set it as the preview's background
+            reader.onload = function(e) {
+                imagePreview.style.backgroundImage = `url(${e.target.result})`;
+                imagePreview.style.backgroundSize = 'cover';
+                imagePreview.style.backgroundPosition = 'center';
+                imagePreview.style.width = '300px'; // Optional: Set a width
+                imagePreview.style.height = '300px'; // Optional: Set a height
+                imageSection.style.display = 'block'; // Show the image section
+            };
+            
+            reader.readAsDataURL(file); // Read the image file
+        } else {
+            alert('Please select a valid image file (PNG, JPG, or JPEG).');
+            imageSection.style.display = 'none';
+        }
+    });
+
+    // Toggle chatbot visibility
+    document.getElementById('toggle-chatbot').addEventListener('click', function() {
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const isVisible = chatbotContainer.style.display === 'block';
+
+        if (isVisible) {
+            chatbotContainer.style.display = 'none';
+            this.textContent = 'Chat'; // Change button text when closed
+        } else {
+            chatbotContainer.style.display = 'block';
+            this.textContent = 'Close Chat'; // Change button text when open
+        }
+    });
+</script>
+
+{% endblock %}
