@@ -139,8 +139,7 @@ def send_sos_email():
     ]
 
     
-    #remove the quotes
-    url = '#'
+    url = 'https://66c62f95a65a5b61a9d3136b--coruscating-marigold-a0ceb0.netlify.app/'
     filename = 'hello.txt' 
 
     context = ssl.create_default_context()
@@ -178,8 +177,8 @@ def send_sos_email():
 
 # Function to send SMS and make a call using Twilio
 def send_twilio_alert():
-    account_sid = "#"
-    auth_token = "#" 
+    account_sid = "ACcd0d88307fcfd80e81de7e8885fe2d3f"
+    auth_token = "fcac17f33fa681e4289c6871c800b005"
     
     client = Client(account_sid, auth_token)
     
@@ -193,7 +192,7 @@ def send_twilio_alert():
     
     # Making a call
     call = client.calls.create(
-        url='#',
+        url='http://demo.twilio.com/docs/voice.xml',
         to="+916379613654",  # JAHA
         from_="+12562239694"
     )
